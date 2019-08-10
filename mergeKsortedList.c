@@ -78,7 +78,7 @@ int main(){
     list2 = newNode(2);
     list2->next = newNode(4);
     list2->next->next = newNode(7);
-    list2->next->next->next = newNode(8);
+    //list2->next->next->next = newNode(8);
     //printList(list1);
     //printList(list2);
 
