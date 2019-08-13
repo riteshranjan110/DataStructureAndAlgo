@@ -58,6 +58,24 @@ struct node* mergeList(struct node *head1, struct node *head2){
     return head;
 }
 
+// Function which will merge K sorted list by using merList function.
+struct node* mergeKList(struct node *arr[], int last){
+    int end = last,start;
+    while(end){
+        end = last;
+        start = 0;
+        while(start<end){
+            arr[start] = mergeList(arr[start], arr[end]);
+            start++;
+            end--;
+            if(start>=end){
+                last = end;
+            }
+        }
+    }
+    return arr[0];
+}
+
 void printList(struct node *head){
     //printf("Inside");
     struct node *temp = head;
@@ -70,7 +88,7 @@ void printList(struct node *head){
 }
 
 int main(){
-    struct node *list1,*list2,*head;
+    struct node *list1, *list2, *list3, *head;
     list1 = newNode(1);
     list1->next = newNode(3);
     list1->next->next = newNode(5);
@@ -79,9 +97,18 @@ int main(){
     list2->next = newNode(4);
     list2->next->next = newNode(7);
     //list2->next->next->next = newNode(8);
-    //printList(list1);
-    //printList(list2);
+    printList(list1);
+    printList(list2);
+    printList(list3);
 
-    head = mergeList(list1, list2);
+    list3 = newNode(0);
+    list3->next = newNode(6);
+    list3->next->next = newNode(8);
+
+    struct node *arr[] = {list1, list3, list2};
+
+    head = mergeKList(arr, 2);
+
+    //head = mergeList(list1, list2);
     printList(head);
 }
