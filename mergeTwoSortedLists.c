@@ -1,4 +1,4 @@
-// In this program we are going to merger K sorted Lists into one single list.
+// In this program we are going to merger two  sorted Lists into one single list.
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -79,9 +79,11 @@ int main(){
     list2->next = newNode(4);
     list2->next->next = newNode(7);
     //list2->next->next->next = newNode(8);
-    //printList(list1);
-    //printList(list2);
-
+    printf("First sorted list :: ");
+    printList(list1);
+    printf("Second sorted list :: ");
+    printList(list2);
+    printf("Sorted list after merging :: ");
     head = mergeList(list1, list2);
     printList(head);
 }

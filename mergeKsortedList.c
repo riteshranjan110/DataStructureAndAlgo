@@ -99,11 +99,11 @@ int main(){
     //list2->next->next->next = newNode(8);
     printList(list1);
     printList(list2);
-    printList(list3);
 
     list3 = newNode(0);
     list3->next = newNode(6);
     list3->next->next = newNode(8);
+    printList(list3);
 
     struct node *arr[] = {list1, list3, list2};
 
